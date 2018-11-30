@@ -179,7 +179,30 @@ In Equation ~\ref{eq:4} above, $K_{m}$ is assumed to equal 2.083, and $a_{m}$ is
 
 \subsection{Gears}
 
+The block diagram of the gears subsystem is found in Figure ~\ref{fig:gears} below. Note that that feedback for the system also is part of the output of this subsystem.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{./img/GearsBlock.png}
+	\caption{\label{fig:gears}Gears}
+\end{center}
+\end{figure}
+
+Using inspection, the transfer function for this subsystem is as follows:
+
+\begin{equation}
+\frac{\theta_{o}(s)}{\theta_{m}(s)} = K_{g}\label{eq:5}
+\end{equation}
+
+In Equation ~\ref{eq:5} above, I assume that $K_{g} = 0.1$. I again found the step and impulse responses, and bode and Nyquist plots.
+
+%TODO add gears plots here
+
 \subsection{Complete System}
+
+Based on my analysis of the plots in Sections ~\ref{subsec:Potentiometer} through ~\ref{subsec:Gears} above, I can see that the transfer functions of the potentiometers, preamplifier, and gears all remain constant over time. This is all based on the fact that my analysis of the system takes place under a limited set of conditions, mainly $K_{pot}$. If $K_{pot}$ changed, so too would the associated transfer functions.
+
+To determine the overall transfer function of the system, I utilized MatLab.
 
 \section{Conclusion}
 
