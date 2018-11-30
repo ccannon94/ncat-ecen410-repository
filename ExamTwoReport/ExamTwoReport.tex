@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
@@ -39,6 +39,109 @@
 
 \section{Introduction}
 
+This paper provides analysis of a control system of the azimuth position of an antenna. This is a critical controls problem in today's world, where immediate access to information is considered an absolute necessity. Emergency response personnel, military entities, other government organizations, and even private citizens depend upon immediate access to information in critical situations every day. This analysis will focus on the response of the system to various inputs, by determining the transfer function of each subsystem as well as the system as a whole.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{./img/SystemLayout.png}
+	\caption{\label{fig:SysLayout}Control system layout}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{./img/SystemSchematic.png}
+	\caption{\label{fig:SysSchematic}Control system schematic}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{./img/SystemBlockDiagram.png}
+	\caption{\label{fig:SysBlockDiagram}Control system block diagram}
+\end{center}
+\end{figure}
+
+\subsection{Assumptions}
+
+There are several assumptions that must be made in order to complete this analysis. My general assumptions for the parameters are summarized in Table ~\ref{tab:assumptions} below.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| l | l |}
+	\hline
+	Parameter & System \\ \hline
+	\textit{K\textsubscript{pot}} & 0.318 \\ \hline
+	\textit{K} & 1 \\ \hline
+	\textit{K\textsubscript{l}} & 100 \\ \hline
+	\textit{a} & 100 \\ \hline
+	\textit{K\textsubscript{m}} & 2.083 \\ \hline
+	\textit{a\textsubscript{m}} & 1.71 \\ \hline
+	\textit{K\textsubscript{g}} & 0.1 \\ \hline
+\end{tabular}
+\caption{\label{tab:assumptions}Assumptions made for analysis of the system \cite{nise}}
+\end{center}
+\end{table}
+
+For this analysis, I also make the following assumptions:
+\begin{itemize}
+	\item There is no disturbances or interference in the signals between subsystems.
+	\item "Motor" in the system is an armature controlled DC servo motor.
+\end{itemize}
+
+\section{Analysis}
+
+Analysis will be supplemented with MatLab to plot the relationships between system inputs, outputs, and gains.
+
+\subsection{Potentiometer}
+
+The input potentiometer is used by the user to input a desired azimuth angle $\Theta$ for the system.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{./img/PotentiometerBlock.png}
+	\caption{\label{fig:pot}Input Potentiometer}
+\end{center}
+\end{figure}
+
+From Figure ~\ref{fig:pot} above, I observed that the transfer function for the input potentiometer subsystem is the potentiometer output $V_{i}(s)$ divided by the user entered azimuth angle $\Theta_{i}(s)$. Therefore:
+
+\begin{equation}
+\frac{V_{i}(s)}{\Theta_i(s)} = K_{pot}\label{eq:1}
+\end{equation}
+
+Based on the Equation ~\ref{eq:1} above, and the previously stated assumption that $K_{pot} = 0.318$, I am able to plot the transfer function for the input potentiometer. I will analyze the transfer function in the time domain using plots of the step and impulse responses. For frequency domain analysis, I will use Nyquist and bode plots. These plots will help me determine gain and phase in the frequency domain.
+
+%TODO add potentiometer plots here
+
+\subsection{Preamplifier}
+
+The preamplifier is shown in Figure ~\ref{fig:preamp} below.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{./img/PreamplifierBlock.png}
+	\caption{\label{fig:preamp}Preamplifier}
+\end{center}
+\end{figure}
+
+As with the potentiometer, I can determine by inspection that the transfer function of the preamplifier is equal to the output divided by the input. Therefore:
+
+\begin{equation}
+\frac{V_{p}(s)}{V_{e}(s)} = K\label{eq:2}
+\end{equation}
+
+Using my assumptions above that $K = 1$, once again I will plots the step and impulse responses, as well as the Nyquist and bode plots.
+
+%TODO add preamp plots here
+
+\subsection{Power Amplifier}
+
+\subsection{Motor and Load}
+
+\subsection{Gears}
+
+\subsection{Complete System}
 
 \section{Conclusion}
 
@@ -50,4 +153,15 @@
 
 
 \end{appendices}
+
+\begin{thebibliography}{9}
+
+\bibitem{nise}
+  Norman S. Nise,
+  Control Systems Engineering,
+  John Wiley and Sons, New York, New York,
+  7th edition,
+  2015.
+
+\end{thebibliography}
 \end{document}
