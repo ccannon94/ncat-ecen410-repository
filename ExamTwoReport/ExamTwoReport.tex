@@ -17,6 +17,35 @@
 % Needed to make titling page without a page number
 \usepackage{titling}
 
+% This section required for the code block stuff below
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Makes code blocks have shaded backgrounds and line numbers
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
 % DOCUMENT INFORMATION =================================================
 \font\titleFont=cmr12 at 11pt
 \title {{\titleFont ECEN 410:  Linear Control System \\ North Carolina Agricultural and Technical State University \\ Department of Electrical and Computer Engineering \\ Dr. Christopher Horne}} % Declare Title
@@ -110,9 +139,37 @@ From Figure ~\ref{fig:pot} above, I observed that the transfer function for the 
 \frac{V_{i}(s)}{\Theta_i(s)} = K_{pot}\label{eq:1}
 \end{equation}
 
-Based on the Equation ~\ref{eq:1} above, and the previously stated assumption that $K_{pot} = 0.318$, I am able to plot the transfer function for the input potentiometer. I analyzed the transfer function in the time domain using plots of the step and impulse responses. For frequency domain analysis, I used Nyquist and bode plots. These plots helped me determine gain and phase in the frequency domain.
+Based on the Equation ~\ref{eq:1} above, and the previously stated assumption that $K_{pot} = 0.318$, I am able to plot the transfer function for the input potentiometer. I analyzed the transfer function in the time domain using plots of the step and impulse responses. For frequency domain analysis, I used Nyquist and bode plots. These plots helped me determine gain and phase in the frequency domain. The results are shown in Figures ~\ref{fig:potstep} through ~\ref{fig:potnyquist}.
 
-%TODO add potentiometer plots here
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PotentiometerStep.png}
+	\caption{\label{fig:potstep}Input Potentiometer Step Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PotentiometerImpulse.png}
+	\caption{\label{fig:potimpulse}Input Potentiometer Impulse Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PotentiometerBode.png}
+	\caption{\label{fig:potbode}Input Potentiometer Bode Plot}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PotentiometerNyquist.png}
+	\caption{\label{fig:potnyquist}Input Potentiometer Nyquist Plot}
+\end{center}
+\end{figure}
+
+Functionally, the feedback potentiometer signal will be the same as the input potentiometer.
 
 \subsection{Preamplifier}
 
@@ -131,9 +188,35 @@ As with the potentiometer, I can determine by inspection that the transfer funct
 \frac{V_{p}(s)}{V_{e}(s)} = K\label{eq:2}
 \end{equation}
 
-Using my assumptions above that $K = 1$, once again I plotted the step and impulse responses, as well as the Nyquist and bode plots.
+Using my assumptions above that $K = 1$, once again I plotted the step and impulse responses, as well as the Nyquist and bode plots. The results of this analysis are shown in Figures ~\ref{fig:preampstep} through ~\ref{fig:preampnyquist}.
 
-%TODO add preamp plots here
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PreampStep.png}
+	\caption{\label{fig:preampstep}Preamplifier Step Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PreampImpulse.png}
+	\caption{\label{fig:preampimpulse}Preamplifier Impulse Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PreampBode.png}
+	\caption{\label{fig:preampbode}Preamplifier Bode Plut}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/PreampNyquist.png}
+	\caption{\label{fig:preampnyquist}Preamplifier Nyquist Plot}
+\end{center}
+\end{figure}
 
 \subsection{Power Amplifier}
 
@@ -152,9 +235,35 @@ Once again using inspection, I found the transfer function for the amplifier to 
 \frac{E_{a}(s)}{V_{p}(s)} = \frac{K_{1}}{s+a}\label{eq:3}
 \end{equation}
 
-Based on assumptions above, $K_{a} = a = 100$. Once again I will use the step and impulse responses, bode and Nyquist plots.
+Based on assumptions above, $K_{a} = a = 100$. Once again I will use the step and impulse responses, bode and Nyquist plots. The results of this analysis are shown below in Figures ~\ref{fig:ampstep} through ~\ref{fig:ampnyquist}.
 
-%TODO add amp plots here
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/AmpStep.png}
+	\caption{\label{fig:ampstep}Power Amplifier Step Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/AmpImpulse.png}
+	\caption{\label{fig:ampimpulse}Power Amplifier Impulse Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/AmpBode.png}
+	\caption{\label{fig:ampbode}Power Amplifier Bode Plot}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/AmpNyquist.png}
+	\caption{\label{fig:ampnyquist}Power Amplifier Nyquist Plot}
+\end{center}
+\end{figure}
 
 \subsection{Motor and Load}
 
@@ -173,9 +282,35 @@ By inspection, I found the transfer function of this subsystem to be:
 \frac{\theta_{m}(s)}{E_{a}(s)} = \frac{K_{m}}{s(s+a_{m})}\label{eq:4}
 \end{equation}
 
-In Equation ~\ref{eq:4} above, $K_{m}$ is assumed to equal 2.083, and $a_{m}$ is assumed to be 1.71. Using the equation and the previously stated assumptions, I created step and impulse response plots, and well as bode and Nyquist plots.
+In Equation ~\ref{eq:4} above, $K_{m}$ is assumed to equal 2.083, and $a_{m}$ is assumed to be 1.71. Using the equation and the previously stated assumptions, I created step and impulse response plots, and well as bode and Nyquist plots. The results of this analysis are shown in Figures ~\ref{fig:motorstep} through ~\ref{fig:motornyquist} below.
 
-%TODO add motor plots here
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/MotorStep.png}
+	\caption{\label{fig:motorstep}Motor and Load Step Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/MotorImpulse.png}
+	\caption{\label{fig:motorimpulse}Motor and Load Impulse Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/MotorBode.png}
+	\caption{\label{fig:motorbode}Motor and Load Bode Plot}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/MotorNyquist.png}
+	\caption{\label{fig:motornyquist}Motor and Load Nyquist Plot}
+\end{center}
+\end{figure}
 
 \subsection{Gears}
 
@@ -194,17 +329,97 @@ Using inspection, the transfer function for this subsystem is as follows:
 \frac{\theta_{o}(s)}{\theta_{m}(s)} = K_{g}\label{eq:5}
 \end{equation}
 
-In Equation ~\ref{eq:5} above, I assume that $K_{g} = 0.1$. I again found the step and impulse responses, and bode and Nyquist plots.
+In Equation ~\ref{eq:5} above, I assume that $K_{g} = 0.1$. I again found the step and impulse responses, and bode and Nyquist plots. The plots from this analysis are shown in Figures ~\ref{fig:gearsstep} through ~\ref{fig:gearsnyquist}.
 
-%TODO add gears plots here
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/GearsStep.png}
+	\caption{\label{fig:gearsstep}Gears Step Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/GearsImpulse.png}
+	\caption{\label{fig:gearsimpulse}Gears Impulse Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/GearsBode.png}
+	\caption{\label{fig:gearsbode}Gears Bode Plot}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/GearsNyquist.png}
+	\caption{\label{fig:gearsnyquist}Gears Nyquist Plot}
+\end{center}
+\end{figure}
 
 \subsection{Complete System}
 
 Based on my analysis of the plots in Sections ~\ref{subsec:Potentiometer} through ~\ref{subsec:Gears} above, I can see that the transfer functions of the potentiometers, preamplifier, and gears all remain constant over time. This is all based on the fact that my analysis of the system takes place under a limited set of conditions, mainly $K_{pot}$. If $K_{pot}$ changed, so too would the associated transfer functions.
 
-To determine the overall transfer function of the system, I utilized MatLab.
+To determine the overall transfer function of the system, I reduced the block diagram given in Figure ~\ref{fig:SysBlockDiagram} using the process shown in Figure ~\ref{fig:reduction}.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/BlockDiagramReduction.png}
+	\caption{\label{fig:reduction}Process of block diagram reduction}
+\end{center}
+\end{figure}
+
+By utilizing my assumptions and the reduced block diagram, I can deduce the overall transfer function of the system to be:
+
+\begin{equation}
+\frac{\theta_{o}(s)}{\theta_{i}(s)} = \frac{6.624}{s^{3}+101.71s^{2}+171s+6.624}\label{eq:6}
+\end{equation}
+
+I plotted this transfer function using the same four plots as each subcomponent. Those plots are shown in Figures ~\ref{fig:completestep} through \ref{fig:completenyquist} below.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/CompleteStep.png}
+	\caption{\label{fig:completestep}Complete Step Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/CompleteImpulse.png}
+	\caption{\label{fig:completeimpulse}Complete Impulse Response}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/CompleteBode.png}
+	\caption{\label{fig:completebode}Complete Bode Plot}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/CompleteNyquist.png}
+	\caption{\label{fig:completenyquist}Complete Nyquist Plot}
+\end{center}
+\end{figure}
+
+Without feedback, the step response would be as shown in Figure ~\ref{fig:completewo}.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=\textwidth]{./img/CompleteStepNoFeedback.png}
+	\caption{\label{fig:completewo}Complete System Step Reponse without Feedback Potentiometer}
+\end{center}
+\end{figure}
 
 \section{Conclusion}
+
+In conclusion, the feedback potentiometer will provide critical input to prevent over or undershoot of the antenna azimuth as it approaches the azimuth input by the user. As stated in the introduction, it is critical that the antenna be aligned accurately and quickly. Given what I have learned about the response characteristics of this system, I recommend that the system should slightly increase the integral gain to ensure that the system more accurately approach the desired azimuth other time.
 
 \pagebreak
 
@@ -212,6 +427,9 @@ To determine the overall transfer function of the system, I utilized MatLab.
 
 \begin{appendices}
 
+\section{MatLab Gain and Plot Script}
+
+\lstinputlisting[language=Octave]{analysis.m}
 
 \end{appendices}
 
